@@ -1,0 +1,6 @@
+@QualityMasterAPI_HostAddress = http://localhost:5100
+
+GET {{QualityMasterAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
