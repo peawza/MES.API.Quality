@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace QualityOperaterAPI.Controllers
@@ -28,6 +29,21 @@ namespace QualityOperaterAPI.Controllers
                 Summary = Summaries[Random.Shared.Next(Summaries.Length)]
             })
             .ToArray();
+        }
+        [HttpGet("test")]
+        [Authorize]
+        public IActionResult Test()
+        {
+            return Ok(new { message = "Authorized successfully" });
+        }
+
+
+
+        [HttpGet("public")]
+        [AllowAnonymous]
+        public IActionResult PublicEndpoint()
+        {
+            return Ok(new { message = "No authentication needed" });
         }
     }
 }

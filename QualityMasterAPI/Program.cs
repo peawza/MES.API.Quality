@@ -1,25 +1,34 @@
+using Utils;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+/* 
+ --- DB Conneted Config---
+ 
+ 
+ */
+
+
+
+/* --- Add Repository & Service ---*/
+
+
+/* ---Add message bus Or message broker --- */
+
+
+/* ---Add gRPC --- */
+
+
+StartupAPIMicoService.StartupCreateBuilder(builder);
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
 
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
-app.MapControllers();
-
+StartupAPIMicoService.StartupCreateApplication(builder, app);
 app.Run();
+
+
+
+
+

@@ -1,9 +1,11 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace QualityReportAPI.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    //[Authorize]
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
@@ -28,6 +30,21 @@ namespace QualityReportAPI.Controllers
                 Summary = Summaries[Random.Shared.Next(Summaries.Length)]
             })
             .ToArray();
+        }
+        [HttpGet("test")]
+        [Authorize]
+        public IActionResult Test()
+        {
+            return Ok(new { message = "Authorized successfully" });
+        }
+
+
+
+        [HttpGet("public")]
+        [AllowAnonymous]
+        public IActionResult PublicEndpoint()
+        {
+            return Ok(new { message = "No authentication needed" });
         }
     }
 }

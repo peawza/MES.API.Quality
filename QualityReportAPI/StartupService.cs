@@ -1,4 +1,6 @@
-﻿namespace QualityReportAPI
+﻿using Utils.Services;
+
+namespace QualityReportAPI
 {
     public class StartupService
     {

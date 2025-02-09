@@ -1,4 +1,6 @@
-﻿namespace QualityOperaterAPI
+﻿using Utils.Services;
+
+namespace QualityOperaterAPI
 {
     public class StartupService
     {
